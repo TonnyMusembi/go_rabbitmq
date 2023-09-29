@@ -3,14 +3,12 @@ package main
 import (
 	"log"
 	"time"
-
 	"github.com/streadway/amqp"
 )
 
 func main() {
 	// RabbitMQ server URL
 	rabbitMQURL := "amqp://guest:guest@localhost:5672/"
-
 	// Establish a connection to RabbitMQ
 	conn, err := amqp.Dial(rabbitMQURL)
 	if err != nil {
