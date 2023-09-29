@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-  
+
     req, err := http.NewRequest(http.MethodGet, "https://jsonplaceholder.typicode.com/todos/2", nil)
     if err != nil {
         log.Fatalf("Failed to create request object for /GET endpoint: %v", err)
