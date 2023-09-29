@@ -2,16 +2,20 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"net/http"
 )
 
 func main() {
-	router := gin.Default()
+	// Create a new Gin router
+	r := gin.Default()
 
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "Hello, Test api!",
+	// Define a route
+	r.GET("/hello", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "Hello, test api!",
 		})
 	})
 
-	router.Run(":8089")
+	// Start the server on port 8080
+	r.Run(":8089")
 }
