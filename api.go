@@ -13,12 +13,16 @@ type TestInput struct {
 func main() {
 	// Create a new Gin router
 	r := gin.Default()
-	
+
 	// Define a route
 	r.GET("/hello", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "Hello, test api!",
 		})
+		 r.NoRoute(func(c *gin.Context) {
+        // In gin this is how you return a JSON response
+        c.JSON(404, gin.H{"message": "Not found"})
+    })
 	})
 	r.POST("/test", func(c *gin.Context) {
 		var input TestInput
