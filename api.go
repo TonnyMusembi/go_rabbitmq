@@ -5,6 +5,8 @@ import (
 	"net/http"
 
 )
+// var jwtKey = []byte("my_secret_key")
+
 
 type TestInput struct {
 	Message string `json:"message"`
