@@ -35,6 +35,14 @@ func main() {
 			"message": message,
 		})
 	})
+	r.GET("/greet" ,func(c*gin.Context){
+			name := c.Param("name")
+		c.JSON(http.StatusOK,gin.H{
+					"greeting": "Hello, " + name + "!",
+
+		})
+
+	})
 
 	// Start the server on port 8080
 	r.Run(":8089")

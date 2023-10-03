@@ -1,6 +1,9 @@
 package db
 
-import "github.com/santosh/gingo/models"
+import (
+	"go_que/models"
+)
+
 
 // Books slice to seed book data.
 var Books = []models.Book{
