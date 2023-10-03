@@ -38,7 +38,7 @@ func main() {
 	r.GET("/greet" ,func(c*gin.Context){
 			name := c.Param("name")
 		c.JSON(http.StatusOK,gin.H{
-					"greeting": "Hello, " + name + "!",
+		"greeting": "Hello, " + name + "!",
 
 		})
 
