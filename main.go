@@ -39,6 +39,7 @@ func main() {
 	)
 	if err != nil {
 		log.Fatalf("Failed to declare a queue: %v", err)
+		panic("Something went wrong!")
 		time.Sleep(1 * time.Minute) // Wait for one minute before retrying
 
 	}
