@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+
 )
 
 type TestInput struct {
@@ -26,7 +27,8 @@ func main() {
 	})
 	r.POST("/test", func(c *gin.Context) {
 		var input TestInput
-		if err := c.ShouldBindJSON(&input); err != nil {
+		if err := c.ShouldBindJSON(&input);
+		 err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
@@ -36,7 +38,7 @@ func main() {
 		})
 	})
 	r.GET("/greet" ,func(c*gin.Context){
-			name := c.Param("name")
+			name:= c.Param("name")
 		c.JSON(http.StatusOK,gin.H{
 		"greeting": "Hello, " + name + "!",
 
