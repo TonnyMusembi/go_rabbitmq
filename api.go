@@ -5,10 +5,15 @@ import (
 	"net/http"
 )
 
+type TestInput struct {
+	Message string `json:"message"`
+}
+
+
 func main() {
 	// Create a new Gin router
 	r := gin.Default()
-
+	
 	// Define a route
 	r.GET("/hello", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
@@ -16,8 +21,14 @@ func main() {
 		})
 	})
 	r.POST("/test", func(c *gin.Context) {
+		var input TestInput
+		if err := c.ShouldBindJSON(&input); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+	message := input.Message
 		c.JSON(http.StatusOK, gin.H{
-			"message": "test", 
+			"message": message,
 		})
 	})
 
