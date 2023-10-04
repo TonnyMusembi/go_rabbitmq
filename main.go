@@ -4,6 +4,7 @@ import (
 	"log"
 	"time"
 	"github.com/streadway/amqp"
+	"fmt"
 )
 
 func main() {
@@ -64,5 +65,11 @@ func main() {
 
 	log.Printf("Published message: %s", message)
 	time.Sleep(1 * time.Minute)
+ numbers := []int{1, 2, 3, 4, 5}
 
+		 for index, value := range numbers {
+        fmt.Printf("Index: %d, Value: %d\n", index, value)
+    }
+
+	
 }
