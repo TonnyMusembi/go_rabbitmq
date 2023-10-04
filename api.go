@@ -13,6 +13,7 @@ type TestInput struct {
 }
 
 
+
 func main() {
 	// Create a new Gin router
 	r := gin.Default()
@@ -47,6 +48,15 @@ func main() {
 		})
 
 	})
+	r.GET("/news",func(c*gin.Context){
+		c.JSON(http.StatusOK,gin.H{
+			"message":"yes",
+		})
+
+	})
+	   
+
+
 
 	// Start the server on port 8080
 	r.Run(":8089")
